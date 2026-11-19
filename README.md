@@ -4,7 +4,16 @@ A machine-learning project for estimating telecom customer churn and prioritisin
 
 ## Dashboard preview
 
-![Light-themed customer churn dashboard with batch risk summaries](reports/figures/app_preview.png)
+![Churn Studio overview with model comparison and holdout outcomes](reports/figures/app_preview.png)
+
+Navigate from the sidebar:
+
+- **Overview:** saved evaluation metrics, model comparison and holdout outcomes.
+- **Single customer:** editable demo profiles, a compact account form and a risk assessment. Changing inputs clears the previous prediction until you score again.
+- **Batch CSV:** upload a file or use the local demo dataset, inspect risk distribution and download all scores. Uploaded files take priority over the demo selection.
+- **Model card:** switch between ROC/PR curves, confusion matrix, feature importance, calibration and gains, with explanations and limitations.
+
+All displayed evaluation figures come from the saved report; the dashboard does not fabricate live activity or revenue estimates.
 
 **Start here:** [Jupyter classroom demo](notebooks/02_live_demo.ipynb) · [Paste-ready Python code](scripts/notebook_demo.py) · [Local setup](#run-locally) · [Model card](reports/model_card.md)
 
