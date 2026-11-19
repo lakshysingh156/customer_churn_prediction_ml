@@ -1,0 +1,47 @@
+Rows: 7,043 | churn rate: 26.5%
+Train: 5,634 | holdout: 1,409 (stratified, seed 42)
+
+Comparing models with 5-fold CV on the training rows...
+                 model PR-AUC ± std ROC-AUC ± std
+   logistic_regression  0.661 0.015   0.848 0.011
+         random_forest  0.646 0.025   0.839 0.009
+hist_gradient_boosting  0.629 0.019   0.828 0.007
+     majority_baseline  0.265 0.000   0.500 0.000
+
+Selected by average_precision: logistic_regression
+Ablation: raw_features wins by 0.000 PR-AUC
+Operating point: target 30% of training customers -> cut-off 0.394 (out-of-fold precision 0.59, recall 0.67)
+  The illustrative penalty-optimal cut-off is 0.175; it flags 52% of training customers.
+
+Holdout performance (scored once, at the operating point)
+  ROC-AUC      0.842
+  PR-AUC       0.634   (prevalence 0.265)
+  Precision    0.569   -> 2.1x lift over random
+  Recall       0.676   -> caught 253 of 374 churners
+  Contacts     445 (32% of customers)
+  Accuracy     0.778  (reference only; imbalanced classes)
+
+Illustrative misclassification penalties (not campaign profit): 1000 per false negative, 250 per false positive
+  Model             169,000
+  Predict no churn  374,000
+  Predict all churn 258,750
+
+Top features (permutation importance, PR-AUC drop)
+        feature  importance
+         tenure     +0.2414
+InternetService     +0.0777
+ MonthlyCharges     +0.0629
+       Contract     +0.0398
+   TotalCharges     +0.0314
+StreamingMovies     +0.0136
+    TechSupport     +0.0116
+ OnlineSecurity     +0.0084
+
+Risk band performance (holdout)
+  Low       n= 695  churn 6.5%
+  Medium    n= 269  churn 28.3%
+  High      n= 304  churn 48.7%
+  Critical  n= 141  churn 74.5%
+
+Saved model   -> artifacts\churn_pipeline.joblib
+Saved metrics -> reports\metrics.json

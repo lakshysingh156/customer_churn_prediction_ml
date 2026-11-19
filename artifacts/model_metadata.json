@@ -1,0 +1,42 @@
+{
+  "model": "logistic_regression",
+  "model_sha256": "ed9cc47548da08bdcd25972e981a3f5fb28358596cf46e5d6763b433605df427",
+  "feature_set": "raw",
+  "decision_threshold": 0.39443555495266325,
+  "band_cutoffs": [
+    0.18595689828512374,
+    0.39443555495266325,
+    0.6604450120639165
+  ],
+  "target_contact_rate": 0.3,
+  "trained_at": "2026-11-19T13:06:17+00:00",
+  "training_rows": 5634,
+  "required_input_columns": [
+    "Contract",
+    "Dependents",
+    "DeviceProtection",
+    "InternetService",
+    "MonthlyCharges",
+    "MultipleLines",
+    "OnlineBackup",
+    "OnlineSecurity",
+    "PaperlessBilling",
+    "Partner",
+    "PaymentMethod",
+    "PhoneService",
+    "SeniorCitizen",
+    "StreamingMovies",
+    "StreamingTV",
+    "TechSupport",
+    "TotalCharges",
+    "gender",
+    "tenure"
+  ],
+  "versions": {
+    "python": "3.10.10",
+    "scikit-learn": "1.7.2",
+    "pandas": "2.3.3",
+    "numpy": "2.2.6",
+    "joblib": "1.5.3"
+  }
+}
